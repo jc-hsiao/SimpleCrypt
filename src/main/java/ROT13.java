@@ -27,7 +27,11 @@ public class ROT13  {
         int start = 'a';
         if( Character.isUpperCase(c))
             start = 'A';
-        return (char)(((c-start+n)%26)+start);
+
+        if(n<0)
+            return (char)(((c-start+( 26+n ))%26)+start);
+        else
+            return (char)(((c-start+n)%26)+start);
     }
 
     public String encrypt(String text) {
